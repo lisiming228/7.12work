@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // object练习
+        //Object.assign()
+        var obj=new Object();
+        var obj1={"name":"a"};
+        var obj2={
+            say:function(){
+                console.log("say");
+            }
+        };
+        console.log(Object.assign(obj,obj1,obj2));
+        obj.say();
+        //Object.is()
+        console.log(Object.is(0,-0));
+        //Object.prototype.isPrototyprOf()
+        function a(){}
+        var b = new a();
+        console.log(a.prototype.isPrototypeOf(b)); 
+        //Object.defineProperty()
+        Object.defineProperty(obj, 'age', {
+            value: '19'
+        })
+        console.log(obj.age)
+        // Object.defineProperties()
+        var per = new Object();
+        Object.defineProperties(per, {
+            name: {
+                value: 'a',
+                configurable: false,
+                writable: true,
+                enumerable: true
+            },
+            age: {
+                value: 18,
+                configurable: true
+            }
+        })
+        console.log(per.name,per.age);
+        per.name="b";
+        per.age=20;
+        for(var key in per){
+            console.log(per[key]);
+        }
+        // console.log(Object.keys(per));
+        console.log(per.name, per.age) ;// 张三, 18
+        //Object.freeze(obj)
+        Object.freeze(per)
+        per.name='b';
+        per.age=23;
+        console.log(per.name,per.age);
+        // Object.getOwnPropertyNames(obj);
+        console.log( Object.getOwnPropertyNames(per));
+        //Object.getOwnPropertySymbols(obj);
+        console.log(Object.getOwnPropertySymbols(per));  
+        // Reflect.ownKeys(obj);
+        console.log( Reflect.ownKeys(per));
+        //Object.values(obj)
+        console.log(Object.values(per));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
